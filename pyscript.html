@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.23.3/full/pyodide.js"></script>
+
+</head>
+<body>
+    <h1>kkk</h1>
+    <div id="plot"></div>
+
+
+    <py-config type="toml">
+        packages = ["numpy", "matplotlib"]
+    </py-config>
+
+
+    <py-script>
+        import matplotlib.pyplot as plt
+        import numpy as np
+
+        x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+        y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+
+        fig, ax = plt.subplots()
+        ax.scatter(x, y)
+        display(fig, target="plot")
+    </py-script>
+</body>
+</html> -->
+
+
+<!-- <html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.23.3/full/pyodide.js"></script>
+    <script type="text/javascript">
+      async function main() {
+        let pyodide = await loadPyodide();
+        await pyodide.loadPackage("micropip");
+        const micropip = pyodide.pyimport("micropip");
+        await micropip.install("pyserial");
+        await pyodide.runPython(`
+        print("hhh")
+        
+      `);
+      }
+      main();
+    </script>
+  </body>
+</html> -->
+
+
+
+<html>
+    <head>
+      <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+      <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+
+  <body>
+    <h1>Let's plot random numbers</h1>
+    <div id="plot"></div>
+    <py-config type="toml">
+        packages = ["numpy", "matplotlib"]
+
+        [[fetch]]
+        files = ["./data.py"]
+    </py-config>
+    <py-script>
+      import matplotlib.pyplot as plt
+      from data import make_x_and_y
+      x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])
+      y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])
+      fig, ax = plt.subplots()
+      ax.scatter(x, y)
+      display(fig, target="plot")
+    </py-script>
+  </body>
+</html>
